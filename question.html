@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocktail Quiz App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+    <div class='container'>
+        <header>
+            <p>Question 1 of 5</p>
+            <p>Score: 0/5</p>
+        </header>
+        <div class='question'>
+            <img src="pictures/ingredients-bone.png" alt="cocktail ingredients">
+        </div>
+
+        <form id='question-response-form'>
+            <p>
+                Which of these cocktails contains:
+            </p>
+            <p>
+                Rye, Lime juice, Simple syrup, and Tabasco?
+            </p>
+            <div>
+                <div>
+                    <input name="cocktail-response" type="radio" value="bone">
+                    <label for="bone">The Bone</label>
+                </div>
+
+                <div>
+                    <input name="cocktail-response" type="radio" value="vieux-carre">
+                    <label for="vieux-carre">Vieux Carre</label>
+                </div>
+
+                <div>
+                    <input name="cocktail-response" type="radio" value="hot-and-sour">
+                    <label for="hot-and-sour">Hot and Sour</label>
+                </div>
+
+                <div>
+                    <input name="cocktail-response" type="radio" value="torchlight">
+                    <label for="torchlight">The Torchlight</label>
+                </div>
+                <button type='submit'>Submit</button>
+            </div>
+            
+        </form>
+
+
+
+    </div>
+
+</body>
+
+</html>
