@@ -27,7 +27,7 @@ li {
     
 }
 
-.quiz-start div {
+.quiz-start-end div {
     display: flex;
     flex-direction: column;
     justify-content: center;
