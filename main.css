@@ -10,6 +10,11 @@ html {
 
 body {
     overflow: hidden;
+    background-color: pink;
+}
+
+main {
+    height: 100vh;
 }
 
 h1 {
@@ -20,7 +25,7 @@ h1 {
 }
 
 .quiz-start-end h2 {
-    color: pink;
+    color: red;
 }
 
 p {
@@ -33,7 +38,7 @@ p {
 
 .banner ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0;
 }
 
@@ -111,6 +116,10 @@ button {
         max-width: 400px;
         width:100%;
     }
+
+    .answers-container {
+        max-width: 400px;
+    }
 }
 
 @media all and (min-width: 750px) {
@@ -118,22 +127,22 @@ button {
         overflow: visible;
     }
 
-    .banner ul {
-        justify-content: space-around;
-    }
-
     .quiz-question-answer {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    main {
-        margin-left: 150px;
-        margin-right: 150px;
-    }
+    
 }
 
 @media all and (min-width: 1000px) {
+    main {
+        margin-left: 150px;
+        margin-right: 150px;
+        padding: 10px;
+        height: auto;
+        min-height: 80vh;
+    }
     .quiz-question-answer {
         flex-direction: row;
         justify-content: space-between;
@@ -141,11 +150,6 @@ button {
 
     .quiz-question-answer-item {
         flex: 1;
-    }
-
-    main {
-        margin-left: 150px;
-        margin-right: 150px;
     }
 
     .answers-container {
