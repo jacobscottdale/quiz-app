@@ -7,31 +7,34 @@
     <title>Cocktail Quiz App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&family=Patua+One&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="main.css" type="text/css">
 </head>
 
 <body>
-    <section class='banner'>
-        <!--<header>
+    <main>
+        <section class='banner'>
+            <!--<header>
             <ul>
                 <li class='js-question-number'>Question 1 of 5</li>
                 <li class='js-score'>Score: 0/5</li>
             </ul>
         </header>-->
-    </section>
+        </section>
 
-    <section class='quiz-start-end'>
-        <!--<div>
+        <section class='quiz-start-end'>
+            <!--<div>
             <h1>Can you use a list of ingredients to guess the name of the cocktail?</h1>
             <button class='start-button'>Start</button>
         </div>-->
-        <!--<div>
+            <!--<div>
             <h2>You got # out of 5 questions correct!</h2>
-        <button class='start-button'>Start Over</button>-->
-    </section>
-    <section class='quiz-question-answer'>
-        <!--<div class='question-picture'>
-            <img src="pictures/ingredients-bone.png" alt="cocktail ingredients">
+        <button class='restart-button'>Restart</button>-->
+        </section>
+        <section class='quiz-question-answer'>
+            <!--<div class='question-picture'>
+            <img src="pictures/ingredients-the-bone.png" alt="cocktail ingredients">
         </div>
 
         <form id='question-response-form'>
@@ -61,20 +64,20 @@
                 <button type='submit'>Submit</button>
             </div>
         </form>-->
-        <!--<div class='question'>
-                <img src="pictures/bone.png" alt="the bone cocktail">
+            <!--<div class='question'>
+            <img src="pictures/${questions[questionIndex].correctAnswer}.png" alt="${questions[questionIndex]} cocktail">
         </div>
-        <form id='question-response-form'>
+        <div class='question-response-container'>
             <h2>Correct!</h2>
             <div class='answers-container'>    
                 <p>
-                    Created by Esquire drinks correspondent David Wondrich, for The Chickenbone Cafe in Williamsburg. There's nothing particularly fancy about this cocktail, just a little tabasco to spice things up!
+                    ${questions[questionIndex].cocktailDescription}
                 </p>
-                
-                <button>Next Question</button>
-                
-        </form>-->
-    </section>
+            </div>
+            <button class='next-question'>Next</button>
+        </div>-->
+        </section>
+    </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type='text/javascript' src="script.js"></script>
 </body>
