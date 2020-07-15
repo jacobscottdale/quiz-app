@@ -72,18 +72,22 @@ const results = {
 };
     
 
-
-
-function renderQuizStart() {
-    // This function will be responsible for rendering the quiz in the DOM
-    console.log('`renderQuizStart` ran');
+function generateQuizStart () {
+    console.log('Generating start of quiz...')
     const quizStartContent =
         `<div>
         <h1>Cocktail Ingredients Quiz</h1>
         <h2>Can you use a list of ingredients to guess the name of the cocktail?</h2>
         <button class='start-button'>Start</button>
     </div>`;
-    $('.quiz-start-end').html(quizStartContent);
+    return quizStartContent;
+}
+
+function renderQuizStart() {
+    // This function will be responsible for rendering the quiz in the DOM
+    console.log('`renderQuizStart` ran');
+    
+    $('.quiz-start-end').html(generateQuizStart());
 }
 
 function handleQuizStartClicked() {
@@ -104,10 +108,8 @@ function updateQuestionNumber() {
     console.log('questionNumber is ' + questionNumber);
 }
 
-function renderQuestion() {
-    // This function will be reponsible for rendering the quiz questions in the DOM
-    // Should also call renderScoreHeader
-    console.log('`renderQuestion` ran');
+function generateQuestion() {
+    console.log('Generating question...')
     const questionContent =
         `<div class='question-picture quiz-question-answer-item'>
         <img src="pictures/ingredients-${questions[questionIndex].correctAnswer}.png" alt="cocktail ingredients">
@@ -148,21 +150,32 @@ function renderQuestion() {
         </div>
     </form>
     </div>`;
-    $('.quiz-question-answer').html(questionContent);
+    return questionContent;
+}
+
+function renderQuestion() {
+    // This function will be reponsible for rendering the quiz questions in the DOM
+    // Should also call renderScoreHeader
+    console.log('`renderQuestion` ran');
+    $('.quiz-question-answer').html(generateQuestion());
+}
+
+function generateScoreHeader() {
+    const scoreHeaderContent =
+    `<header>
+        <ul>
+            <li class='js-question-number'>Question ${questionNumber} of ${questions.length}</li>
+            <li class='js-score'>Score: ${score}/${questions.length}</li>
+        </ul>
+    </header>`;
+    return scoreHeaderContent;
 }
 
 function renderScoreHeader() {
     // This function will be responsible for rendering the score header in the DOM
     // Updates the question # and the score
     console.log('`renderScoreHeader` ran');
-    const scoreHeaderContent =
-        `<header>
-        <ul>
-            <li class='js-question-number'>Question ${questionNumber} of ${questions.length}</li>
-            <li class='js-score'>Score: ${score}/${questions.length}</li>
-        </ul>
-    </header>`;
-    $('.banner').html(scoreHeaderContent);
+    $('.banner').html(generateScoreHeader);
 }
 
 function handleAnswerSubmit() {
@@ -176,21 +189,26 @@ function handleAnswerSubmit() {
     })
 }
 
+function increaseScore() {
+    score += 1;
+}
+
 function renderQuestionResponse(userAnswer) {
     // This function will be responsible for rendering a message in the DOM for the user depending on whether they answered correctly
     console.log('`renderQuestionResponse` ran');
     const correctAnswer = questions[questionIndex].correctAnswer;
     console.log(userAnswer);
     if (userAnswer === correctAnswer) {
-        rightAnswer();
+        increaseScore();
+        $('.quiz-question-answer').html(generateRightAnswer());
+        renderScoreHeader();
     }
     else {
-        wrongAnswer();
+        $('.quiz-question-answer').html(generateWrongAnswer());
     }
 }
 
-function rightAnswer() {
-    score += 1;
+function generateRightAnswer() {
     const questionResponseContent =
         `<div class='question-picture quiz-question-answer-item'>
             <img src="pictures/${questions[questionIndex].correctAnswer}.png" alt="${questions[questionIndex]} cocktail">
@@ -207,11 +225,10 @@ function rightAnswer() {
             </div>
         </div>
         </div>`;
-    $('.quiz-question-answer').html(questionResponseContent);
-    renderScoreHeader();
+    return questionResponseContent;
 }
 
-function wrongAnswer() {
+function generateWrongAnswer() {
     const questionResponseContent =
     `<div class='question-picture quiz-question-answer-item'>
             <img src="pictures/${questions[questionIndex].correctAnswer}.png" alt="${questions[questionIndex]} cocktail">
@@ -225,7 +242,8 @@ function wrongAnswer() {
             </div>
         </div>
         </div>`;
-    $('.quiz-question-answer').html(questionResponseContent);
+    return questionResponseContent;
+    
 }
 
 function handleNextQuestion() {
@@ -250,11 +268,7 @@ function handleNextQuestion() {
     })
 }
 
-
-
-function renderQuizEnd() {
-    // This function will be responsible for rendering the end-of-quiz message in the DOM depending on the user's score
-    console.log('`renderQuizEnd` ran');
+function generateQuizEnd() {
     let resultText = '';
     if (score < 3) {
         resultText = results.bad;
@@ -275,7 +289,14 @@ function renderQuizEnd() {
         <p>${resultText}</p>
         <button class='restart-button'>Start Over</button>
     </div>`;
-    $('.quiz-start-end').html(quizEndContent);
+    return quizEndContent;
+}
+
+function renderQuizEnd() {
+    // This function will be responsible for rendering the end-of-quiz message in the DOM depending on the user's score
+    console.log('`renderQuizEnd` ran');
+    
+    $('.quiz-start-end').html(generateQuizEnd());
 }
 
 function handleStartOver() {
